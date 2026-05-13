@@ -14,9 +14,23 @@ this.windowHeight="300";
 }
 
 
-toConfigWin(){
+toCreateGrid(){
+let sizeCase=20;
+let nbCases=20;
 
-    console.log('function run');
+
+    for(let x=0;x<nbCases;x++){
+      for(let y=0;y<nbCases;y++){ 
+       
+        
+        this.ctx.strokeStyle="grey";
+        this.ctx.strokeRect(sizeCase * x,sizeCase*y ,sizeCase,sizeCase);
+        
+        
+      }     
+    }
+    
+    
 
 
 }

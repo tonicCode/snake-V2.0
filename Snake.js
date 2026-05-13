@@ -3,31 +3,37 @@ export class Snake{
 
 
 
-constructor(posX,posY,snakeWidth,snakeHeight){
+constructor(deplacement){
 
  this.style="green";   
-this.snakeWidth=snakeWidth;
-this.snakeHeight=snakeHeight;
+this.snakeWidth=20;
+this.snakeHeight=20;
 
-this.posX=posX;
-this.posY=posY;
-
+this.deplacement=deplacement;
+this.intervalId;
 
 
 }
 
 
-drawSnake(contextGraphique){
+drawSnake(contextGraphique,cnv){
+contextGraphique.clearRect(0,0,cnv.width,cnv.height);
 
 contextGraphique.fillStyle=this.style;
-contextGraphique.fillRect(this.posX,this.posY,this.snakeWidth,this.snakeHeight);
+
+
+
+contextGraphique.fillRect(this.deplacement.posX,this.deplacement.posY,this.snakeWidth,this.snakeHeight);
 contextGraphique.stroke();
+
+//console.log(cnv.height);
+
+
 // ctx.fillStyle , ctx.fillRect(posx , posy , width , height)
 
 
 
 }
-
 
 
 

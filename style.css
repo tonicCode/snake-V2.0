@@ -1,7 +1,5 @@
 
 
-
-
 body{
 
 display: flex;
@@ -14,6 +12,8 @@ justify-content: center;
 #containerGame{
 display: flex;
 justify-content: center;
+align-items: center;
+/*flex-direction: column;*/
 border: 1px solid black;
 width: 500px;
 height: 500px;
@@ -30,4 +30,30 @@ background-color: black;
 
 
 }
+
+input{
+width:50px;  
+margin-top:400px;
+
+
+
+}
+
+#ileft{
+  background-color: red;
+  /*margin-right:100px;*/
+}
+
+
+
+#iright{
+  background-color: red;
+/*margin-left:100px;*/
+
+}
+
+
+
+
+
 
