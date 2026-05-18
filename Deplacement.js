@@ -16,13 +16,22 @@ export class Deplacement{
     this.mobileControl();
     
     
+    this.snakeIsRunning=false;
+    this.snakeMoveForwardVertically=false;
+    this.snakeMoveBackVertically=false;
     
+    
+    this.snakeMoveForwardHorizontally=true;
+    this.snakeMoveBackHorizontally=false;
+    
+    this.direction="right";
     
     this.keyDownIsPushed=false;
     this.keyUpIsPushed=false;
     this.keyLeftIsPushed=false;
     this.keyRightIsPushed=false;
     this.pcControlEvent();
+    this.autorisation="";
     
    
    
@@ -42,12 +51,20 @@ export class Deplacement{
   
   toMove(){
     
-   // console.log(this.posX);
+   // 
    
    
+   
+  //console.log("direct :", this.direction); 
+   
+   
+   if(this.direction=="right"){
    this.posX+=this.dx;
+  
+   }
     
-    if(this.posX>400){
+    
+    if(this.posX>380){
       this.posX=0;
       
     }else if(this.posX<0){
@@ -57,25 +74,41 @@ export class Deplacement{
 
 // down direction
 
-    if(this.keyDownIsPushed){
-if(this.posY<400){
+
+if(this.keyDownIsPushed){
+if(this.posY<380){
 
 this.dx=0;
 this.dy=20;
 this.posY+=this.dy;
 
+
 }else{
-  this.posY=0;
+ this.posY=0;
+  
+  
 }
 
-}else if(this.keyUpIsPushed){
+
+}
+
+if(this.keyUpIsPushed){
   
+  
+  if(this.posY>=0){
   this.dx=0;
   this.dy=-20;
   this.posY+=this.dy;
+}else{
 
+  this.posY=400;
+}
   
 }
+
+
+
+
 
 if(this.keyRightIsPushed){
 
@@ -90,7 +123,7 @@ if(this.keyLeftIsPushed){
 this.dy=0;
 this.dx=-20;
   //this.dx=-this.dx;
-  //this.posX+=this.dx;
+  this.posX+=this.dx;
 
 
 
@@ -98,8 +131,8 @@ this.dx=-20;
 }
 
 
-    
-   //requestAnimationFrame(this.toMove);
+
+
   }
   
   
@@ -110,7 +143,7 @@ mobileControl(){
 
 this.btnDown.addEventListener("touchstart",()=>{
   
-  this.toPush("on","bDown");
+  this.toPush("on","down","up");
   
   
   
@@ -121,21 +154,21 @@ this.btnDown.addEventListener("touchstart",()=>{
 
 this.btnDown.addEventListener("touchend",()=>{
   
-  this.toPush("off","bDown");
+  this.toPush("off","down");
   
 });
 
 
 this.btnLeft.addEventListener("touchstart", () => {
   
-  this.toPush("on","bLeft");
+  this.toPush("on","left","right");
   
 });
 
 
 this.btnLeft.addEventListener("touchend", () => {
   
-  this.toPush("off","bLeft");
+  this.toPush("off","left");
   
 });
 
@@ -144,14 +177,14 @@ this.btnLeft.addEventListener("touchend", () => {
 
 this.btnRight.addEventListener("touchstart", () => {
   
-  this.toPush("on","bRight");
+  this.toPush("on","right","left");
   
 });
 
 
 this.btnRight.addEventListener("touchend", () => {
   
-  this.toPush("off","bRight");
+  this.toPush("off","right");
   
 });
 
@@ -159,14 +192,14 @@ this.btnRight.addEventListener("touchend", () => {
 
 this.btnUp.addEventListener("touchstart", () => {
   
-  this.toPush("on","bUp");
+  this.toPush("on","up","down");
   
 });
 
 
 this.btnUp.addEventListener("touchend", () => {
   
-  this.toPush("off","bUp");
+  this.toPush("off","up");
   
 });
 
@@ -184,10 +217,10 @@ this.btnUp.addEventListener("touchend", () => {
 }
 
 
-toPush(togle,bName){
+toPush(togle,bName,nonAutoriser){
   console.log(bName);
   
-  if(bName == "bDown"){
+  if(bName == "down" && bName!=="up"&&nonAutoriser!==this.direction){
   
   switch(togle){
     
@@ -195,19 +228,26 @@ toPush(togle,bName){
     
     
     case "on":this.keyDownIsPushed=true;
-    this.keyUpIsPushed=true;
-   
+  this.direction=bName;
+  this.keyLeftIsPushed=false;
+  
+  
+  
+
+    
      break;
     
     case "off": 
-      //this.keyLeftIsPushedIsPushed =false;
-   // this.keyLeftIsPushed=false;
+      
+  
+  
+  
     break;
     
   }
     
     
-  }else if(bName == "bLeft"){
+  }else if(bName == "left"&&nonAutoriser!==this.direction ){
     
     switch (togle) {
   
@@ -215,40 +255,60 @@ toPush(togle,bName){
   case "on":
     this.keyLeftIsPushed=true;
     this.keyDownIsPushed=false;
+    this.keyUpIsPushed=false;
+    this.direction=bName;
+   
+    
     break;
   case "off":
-   this.keyLeftIsPushed=false;
+  
+  
+  
+  
     break;
     
     
   }
   
   
-  } else if(bName == "bRight"){
+  } else if(bName == "right"&& nonAutoriser!==this.direction){
     
     switch (togle) {
   
   
   case "on":
+    
     this.keyRightIsPushed=true;
+    this.direction=bName;
     this.keyDownIsPushed=false;
+    this.keyUpIsPushed=false;
+  
+    
+    
     break;
   case "off":
-   this.keyRightIsPushed=false;
+ 
+ 
     break;
     }
     
-  }else if(bName=="bUp"){
+  }else if(bName=="up" &&nonAutoriser!==this.direction){
     
     switch (togle) {
   
   
   case "on":
-    this.keyUpIsPushed=true;
-    this.keyDownIsPushed=false;
+   this.keyUpIsPushed=true;
+   this.direction=bName;
+   this.keyLeftIsPushed=false;
+   
+   
+  
+    
     break;
   case "off":
-   this.keyUpIsPushed=false;
+ 
+  
     break;
     
     
@@ -257,11 +317,6 @@ toPush(togle,bName){
    
   }
     
-    
-  
-  
-  
-  
   
   
 }
@@ -294,7 +349,7 @@ this.toPushUp(e);
 
 
 toPushdown(e){  
-  // console.log("key push :", e.key);
+  
 
 switch(e.key){
 
@@ -318,7 +373,7 @@ case 'ArrowRight': this.keyRightIsPushed=true;
 
 toPushUp(e){
 
-  // console.log("up",e);
+  
 
 switch(e.key){
 
