@@ -9,6 +9,7 @@ this.cnv=document.getElementById("game");
 this.ctx=this.cnv.getContext("2d");
 this.windowWidth="300";
 this.windowHeight="300";
+this.displayGps=document.getElementById("gps");
 
 
 }
@@ -36,7 +37,12 @@ let nbCases=20;
 }
 
 
-
+toDisplay(localise){
+  
+  this.displayGps.innerHTML=localise;
+  
+  
+}
 
 
 

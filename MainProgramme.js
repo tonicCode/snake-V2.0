@@ -2,6 +2,7 @@
 import {Graphics} from "./Graphics.js";
 import {Snake} from "./Snake.js";
 import {Deplacement} from './Deplacement.js';
+import {Food} from './Food.js';
 
 document.addEventListener("DOMContentLoaded",() =>{
   
@@ -15,6 +16,7 @@ let deplacement=new Deplacement();
 
 
 let snake=new Snake(deplacement);
+ let food=new Food(graphics,snake.getPosX());
 
 
 setInterval(() =>{
@@ -22,14 +24,19 @@ setInterval(() =>{
 snake.drawSnake(graphics.ctx,graphics.cnv);
 graphics.toCreateGrid();
 
- //console.log("hi");
-//snake.drawSnake();
+
+food.drawFood(); 
+
+//affiche la position du snake
+graphics.toDisplay(snake.getLocalise());
+
+ 
  
  
 },100);
 
 
-
+//food.toGenerateRandomPos();
 
 
 

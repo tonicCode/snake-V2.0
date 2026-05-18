@@ -8,6 +8,8 @@ constructor(deplacement){
  this.style="green";   
 this.snakeWidth=20;
 this.snakeHeight=20;
+this.snakePosX=0;
+this.snakePosY=0;
 
 this.deplacement=deplacement;
 this.intervalId;
@@ -31,13 +33,26 @@ contextGraphique.stroke();
 
 // ctx.fillStyle , ctx.fillRect(posx , posy , width , height)
 
-
+//this.getLocalise();
 
 }
 
 
+getLocalise(){
+ 
+ this.snakePosX=this.deplacement.posX;
+ this.snakePosY=this.deplacement.posY;
+//console.log("gps :" , this.snakePosX);
+
+ return `le snake ce trouve ${this.snakePosX} en x et ${this.snakePosY} en Y  `
+}
 
 
+getPosX(){
+this.snakePosX=this.deplacement.posX;
+ 
+return this.snakePosX; 
+}
 
 
 }
