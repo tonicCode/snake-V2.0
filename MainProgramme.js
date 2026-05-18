@@ -16,7 +16,7 @@ let deplacement=new Deplacement();
 
 
 let snake=new Snake(deplacement);
- let food=new Food(graphics,snake.getPosX());
+ let food=new Food(graphics,deplacement);
 
 
 setInterval(() =>{
@@ -30,7 +30,7 @@ food.drawFood();
 //affiche la position du snake
 graphics.toDisplay(snake.getLocalise());
 
- 
+ food.foodColision();
  
  
 },100);

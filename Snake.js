@@ -48,11 +48,11 @@ getLocalise(){
 }
 
 
-getPosX(){
+/*getPosX(){
 this.snakePosX=this.deplacement.posX;
  
 return this.snakePosX; 
-}
+}*/
 
 
 }

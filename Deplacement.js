@@ -31,16 +31,18 @@ export class Deplacement{
     this.keyLeftIsPushed=false;
     this.keyRightIsPushed=false;
     this.pcControlEvent();
-    this.autorisation="";
+    this.autorisation;
     
-   
-   
+  
    
    this.interval=setInterval(() =>{
      
      this.toMove();
      //this.snake;
-     
+    // this.toGetPosX();
+   // this.autorisation();
+
+   
    
      
    },100);
@@ -49,10 +51,12 @@ export class Deplacement{
     
   }
   
+  
+  
   toMove(){
     
    // 
-   
+  // this.getPosX();
    
    
   //console.log("direct :", this.direction); 
@@ -393,7 +397,11 @@ case 'ArrowRight': this.keyLeftIsPushed=false;
 }
 
 
-
+toGetPosX(){
+  
+  
+  return posX;
+}
 
 
 

@@ -10,6 +10,7 @@ export class Food{
     this.foodPosY=0;
     this.snakePos=snakePos;
     this.toGenerateRandomPos();
+    //this.foodColision();
     
   }
   
@@ -31,8 +32,8 @@ for(let i=0;i<400;i+=20){
 
 
   
-  this.foodPosX=rndX;
-  this.foodPosY=rndY;
+  this.foodPosX=Number(rndX);
+  this.foodPosY=Number(rndY);
   
   
     
@@ -45,16 +46,21 @@ for(let i=0;i<400;i+=20){
   this.graphic.ctx.fillStyle="white";
    this.graphic.ctx.fillRect(this.foodPosX,this.foodPosY,this.foodWidth,this.foodHeight);
     
-    
+  
   }
   
   
+  foodColision(){
+    
+    
+this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?this.toGenerateRandomPos():"";
+
+    
+  }
   
+ 
   
-  
-  
-  
-  
+
   
 }
 
