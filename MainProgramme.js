@@ -46,11 +46,15 @@ this.food.drawFood();
 //affiche la position du snake
 this.graphics.toDisplay(this.snake.getLocalise() , this.game.toCountPoints());
 
+this.food.specialFood(this.game.point);
+
 
  
 },100);
 
 
+
+//console.log("fff :", this.game.toCountPoints());
 //food.toGenerateRandomPos();
 
 

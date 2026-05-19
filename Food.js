@@ -6,6 +6,7 @@ export class Food{
     this.graphic=graphic;
     this.foodWidth=20;
     this.foodHeight=20;
+    this.foodColor="white";
     this.foodPosX=0;
     this.foodPosY=0;
     this.snakePos=snakePos;
@@ -44,7 +45,7 @@ for(let i=0;i<400;i+=20){
   
   drawFood(){
     
-  this.graphic.ctx.fillStyle="white";
+  this.graphic.ctx.fillStyle=this.foodColor;
    this.graphic.ctx.fillRect(this.foodPosX,this.foodPosY,this.foodWidth,this.foodHeight);
     
   
@@ -57,11 +58,33 @@ for(let i=0;i<400;i+=20){
 this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?(this.toGenerateRandomPos(),this.thereIsFoodCollision=true) :this.thereIsFoodCollision=false;
 
 
-  console.log("?? :", this.thereIsFoodCollision)
+  // console.log("?? :", this.thereIsFoodCollision)
 
   return this.thereIsFoodCollision;
   }
   
+
+
+specialFood(points){
+
+console.log("p :",points)
+
+
+if(points % 10 === 0 && points!==0 ){
+
+
+
+ 
+this.foodColor="red";
+//  this.graphic.ctx.fill();
+
+
+}else{
+  this.foodColor="white";
+}
+
+
+}
 
 
   
