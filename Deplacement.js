@@ -332,9 +332,11 @@ toPush(togle,bName,nonAutoriser){
   // controle pc 
   pcControlEvent(){
 
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", (e,nonAutoriser) => {
 
-this.toPushdown(e);
+    e.key == "ArrowDown"?nonAutoriser='up':e.key=="ArrowLeft"?nonAutoriser='right':e.key=="ArrowRight"?nonAutoriser="left":e.key=="ArrowUp"?nonAutoriser="down":"";
+
+this.toPushdown(e,nonAutoriser);
 
 });
 
@@ -352,19 +354,71 @@ this.toPushUp(e);
 }
 
 
-toPushdown(e){  
+toPushdown(e,nonAutoriser){  
   
 
 switch(e.key){
 
+  
 
-case 'ArrowDown': this.keyDownIsPushed=true;
+case 'ArrowDown': 
+
+ 
+
+
+if(nonAutoriser!==this.direction){
+this.direction="down";
+this.keyDownIsPushed=true;
+ // this.direction=bName;
+  this.keyLeftIsPushed=false;
+}
+
   break;
-  case 'ArrowLeft': this.keyLeftIsPushed=true;
+  
+  case 'ArrowLeft': 
+
+
+  
+  if(nonAutoriser!==this.direction){
+    this.direction="left";
+  this.keyLeftIsPushed=true;
+
+  
+    this.keyDownIsPushed=false;
+    this.keyUpIsPushed=false;
+  
+
+
+  }
   break;
-  case 'ArrowUp': this.keyUpIsPushed=true;
+  case 'ArrowUp': 
+
+
+
+if(nonAutoriser!==this.direction){
+  this.direction="up";
+  this.keyUpIsPushed=true;
+
+   this.keyLeftIsPushed=false;
+   
+   
+
+
+}
   break;
-case 'ArrowRight': this.keyRightIsPushed=true;
+case 'ArrowRight': 
+
+
+
+if(nonAutoriser!==this.direction){
+this.direction="right";
+
+  this.keyRightIsPushed=true;
+    
+    this.keyDownIsPushed=false;
+    this.keyUpIsPushed=false;
+  
+}
   break;
 
 }
@@ -381,13 +435,13 @@ toPushUp(e){
 
 switch(e.key){
 
-case 'ArrowDown':this.keyUpIsPushed=false;
+case 'ArrowDown'://this.keyUpIsPushed=false;
 break;
- case 'ArrowLeft': this.keyLeftIsPushed=false;
+ case 'ArrowLeft':// this.keyLeftIsPushed=false;
   break;
-  case 'ArrowUp': this.keyDownIsPushed=false;
+  case 'ArrowUp': //this.keyDownIsPushed=false;
   break;
-case 'ArrowRight': this.keyLeftIsPushed=false;
+case 'ArrowRight':// this.keyLeftIsPushed=false;
   break;
 
 
