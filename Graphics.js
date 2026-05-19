@@ -10,7 +10,7 @@ this.ctx=this.cnv.getContext("2d");
 this.windowWidth="300";
 this.windowHeight="300";
 this.displayGps=document.getElementById("gps");
-
+this.displayPoints=document.getElementById("points");
 
 }
 
@@ -37,10 +37,10 @@ let nbCases=20;
 }
 
 
-toDisplay(localise){
+toDisplay(localise, points){
   
   this.displayGps.innerHTML=localise;
-  
+  this.displayPoints.innerHTML=points;
   
 }
 

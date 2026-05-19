@@ -35,17 +35,16 @@ export class Deplacement{
     
   
    
-   this.interval=setInterval(() =>{
+  //  this.interval=setInterval(() =>{
      
-     this.toMove();
-     //this.snake;
-    // this.toGetPosX();
-   // this.autorisation();
+  //    this.toMove();
+     
+
 
    
    
      
-   },100);
+  //  },100);
    
     
     

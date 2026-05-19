@@ -9,6 +9,7 @@ export class Food{
     this.foodPosX=0;
     this.foodPosY=0;
     this.snakePos=snakePos;
+    this.thereIsFoodCollision;
     this.toGenerateRandomPos();
     //this.foodColision();
     
@@ -53,13 +54,15 @@ for(let i=0;i<400;i+=20){
   foodColision(){
     
     
-this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?this.toGenerateRandomPos():"";
+this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?(this.toGenerateRandomPos(),this.thereIsFoodCollision=true) :this.thereIsFoodCollision=false;
 
 
+  console.log("?? :", this.thereIsFoodCollision)
+
+  return this.thereIsFoodCollision;
   }
   
 
-  
 
   
 }

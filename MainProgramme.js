@@ -21,7 +21,7 @@ this.deplacement=new Deplacement();
 
 this.snake=new Snake(this.deplacement);
  this.food=new Food(this.graphics,this.deplacement);
-this.game=new Game(this.snake);
+this.game=new Game(this.snake,this.food);
 
 this.start();
 
@@ -34,14 +34,17 @@ setInterval(() =>{
  
 this.snake.drawSnake(this.graphics.ctx,this.graphics.cnv);
 this.graphics.toCreateGrid();
+this.deplacement.toMove();
 
 
 this.food.drawFood(); 
 
-//affiche la position du snake
-this.graphics.toDisplay(this.snake.getLocalise());
 
- this.food.foodColision();
+//this.food.foodColision()
+ this.game.toCountPoints(this.food.foodColision());
+
+//affiche la position du snake
+this.graphics.toDisplay(this.snake.getLocalise() , this.game.toCountPoints());
 
 
  

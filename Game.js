@@ -3,22 +3,39 @@
 export class Game{
 
 
-    constructor(getPos){
+    constructor(getPosSnake ,getPosFood){
 
-        this.getPos=getPos;
-        this.toCountPoint();
+        this.getPosSnake=getPosSnake;
+        this.getPosFood=getPosFood;
+        this.collisions=false;
+        this.point=0;
+
+        //this.toGetCollisions();
 
     }
 
 
 
- toCountPoint(){
-
-    console.log("pos dans game",this.getPos);
+ toCountPoints(collis){
 
 
 
- }
+if(collis){
+
+this.point+=1;
+  
+}
+
+
+
+
+//this.thereIsFoodColision=true;
+
+return `vous avez ${this.point} : points`;
+}
+
+
+ 
 
 
 
