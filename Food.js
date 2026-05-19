@@ -55,10 +55,10 @@ for(let i=0;i<400;i+=20){
     
 this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?this.toGenerateRandomPos():"";
 
-    
+
   }
   
- 
+
   
 
   

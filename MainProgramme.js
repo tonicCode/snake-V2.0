@@ -3,35 +3,47 @@ import {Graphics} from "./Graphics.js";
 import {Snake} from "./Snake.js";
 import {Deplacement} from './Deplacement.js';
 import {Food} from './Food.js';
+import { Game} from "./Game.js";
 
-document.addEventListener("DOMContentLoaded",() =>{
+
+class MainProgramme{
+
+    constructor(){
+
   
-  
 
 
-let graphics =new Graphics();
+this.graphics =new Graphics();
 
-let deplacement=new Deplacement();
+this.deplacement=new Deplacement();
 //deplacement.toMove();
 
 
-let snake=new Snake(deplacement);
- let food=new Food(graphics,deplacement);
+this.snake=new Snake(this.deplacement);
+ this.food=new Food(this.graphics,this.deplacement);
+this.game=new Game(this.snake);
 
+this.start();
+
+
+}
+
+start(){
 
 setInterval(() =>{
  
-snake.drawSnake(graphics.ctx,graphics.cnv);
-graphics.toCreateGrid();
+this.snake.drawSnake(this.graphics.ctx,this.graphics.cnv);
+this.graphics.toCreateGrid();
 
 
-food.drawFood(); 
+this.food.drawFood(); 
 
 //affiche la position du snake
-graphics.toDisplay(snake.getLocalise());
+this.graphics.toDisplay(this.snake.getLocalise());
 
- food.foodColision();
- 
+ this.food.foodColision();
+
+
  
 },100);
 
@@ -40,10 +52,22 @@ graphics.toDisplay(snake.getLocalise());
 
 
 
+// });
+    
+    }
+
+
+
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded",() =>{
+
+let mp=new MainProgramme();
+
+
 });
-
-
-
-
-
+  
 

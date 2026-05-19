@@ -454,7 +454,7 @@ case 'ArrowRight':// this.keyLeftIsPushed=false;
 toGetPosX(){
   
   
-  return posX;
+  return this.posX;
 }
 
 
