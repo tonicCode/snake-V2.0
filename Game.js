@@ -17,19 +17,19 @@ export class Game{
 
 
 
- toCountPoints(collis){
+ toCountPoints(collis , specCollis){
 
 
 
 if(collis){
 
-this.point+=1;
+this.point+=10;
   
+}else if(specCollis){
+    this.point+=50;
 }
 
-// if(this.point % 10 == 0){
-//    this.pointReachesAtTen=true;
-
+ 
 
 // }
 

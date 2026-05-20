@@ -37,16 +37,16 @@ this.graphics.toCreateGrid();
 this.deplacement.toMove();
 
 
-this.food.drawFood(); 
+this.food.drawFood(this.game.point); 
 
 
 //this.food.foodColision()
- this.game.toCountPoints(this.food.foodColision());
+ this.game.toCountPoints(this.food.foodColision(), this.food.thereIsSpecialFoodCollision);
 
 //affiche la position du snake
 this.graphics.toDisplay(this.snake.getLocalise() , this.game.toCountPoints());
 
-this.food.specialFood(this.game.point);
+//this.food.specialFood(this.game.point);
 
 
  
