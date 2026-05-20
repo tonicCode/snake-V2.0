@@ -7,6 +7,7 @@ export class Food{
     this.foodWidth=20;
     this.foodHeight=20;
     this.foodColor="white";
+    this.specialFoodColor="purple";
     this.foodPosX=0;
     this.foodPosY=0;
 this.specialFoodPosX=0;
@@ -62,22 +63,22 @@ this.specialFoodPosY = Number(rndY2);
     
   this.graphic.ctx.fillStyle=this.foodColor;
    this.graphic.ctx.fillRect(this.foodPosX,this.foodPosY,this.foodWidth,this.foodHeight);
-    
-    if(points % 20 === 0 && points!==0 ){
+   
+   this.graphic.ctx.fill();
+   
+   
+
+    if(points % 100 === 0 && points!==0 ){
 
 //this.graphic.ctx.fillRect(this.specialFoodPosX,this.specialFoodPosY,20,20);
 
-//this.ctx.beginPath();
-this.graphic.ctx.arc(250, 150, 10, 0, Math.PI * 2);
-this.graphic.ctx.fillStyle ="purple";
-this.graphic.ctx.fill();
+this.graphic.ctx.fillStyle =this.specialFoodColor;
+this.graphic.ctx.fillRect(this.specialFoodPosX,this.specialFoodPosY,20,20);
 
-// this.graphic.ctx.beginPath();
-this.foodColor="red";
-//  this.graphic.ctx.fill();
+this.graphic.ctx.stroke();
 
-    } else {
-      this.foodColor="white";
+
+     // this.foodColor="white";
       
     }
     
@@ -94,7 +95,7 @@ this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?(this.toGen
 
 
 // special food collision
-this.snakePos.posX==this.specialFoodPosX&&this.snakePos.posY==this.specialFoodPosY?this.thereIsSpecialFoodCollision=true:this.thereIsSpecialFoodCollision=false;
+this.snakePos.posX==this.specialFoodPosX&&this.snakePos.posY==this.specialFoodPosY?(this.toGenerateRandomPos(),this.thereIsSpecialFoodCollision=true):this.thereIsSpecialFoodCollision=false;
 
   // console.log("?? :", this.thereIsFoodCollision)
 

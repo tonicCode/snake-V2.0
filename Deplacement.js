@@ -32,6 +32,11 @@ export class Deplacement{
     this.keyRightIsPushed=false;
     this.pcControlEvent();
     this.autorisation;
+
+    this.headRight=false;
+    this.headLeft=false;
+    this.headUp=false;
+    this.headDown=false;
     
   
    
@@ -62,8 +67,11 @@ export class Deplacement{
    
    
    if(this.direction=="right"){
+    this.headRight=true;
    this.posX+=this.dx;
   
+   }else{
+    this.headRight=false;
    }
     
     
@@ -80,32 +88,39 @@ export class Deplacement{
 
 if(this.keyDownIsPushed){
 if(this.posY<380){
-
+this.headDown=true;
 this.dx=0;
 this.dy=20;
 this.posY+=this.dy;
 
 
 }else{
+
  this.posY=0;
   
   
 }
 
 
+}else{
+    this.headDown=false;
 }
 
 if(this.keyUpIsPushed){
   
   
   if(this.posY>=0){
+    this.headUp=true;
   this.dx=0;
   this.dy=-20;
   this.posY+=this.dy;
 }else{
 
+
   this.posY=400;
 }
+}else{
+    this.headUp=false;
   
 }
 
@@ -115,14 +130,20 @@ if(this.keyUpIsPushed){
 
 if(this.keyRightIsPushed){
 
+  
   this.dy=0;
   this.dx=20;
 //this.posX++;
 
+}else{
+
 }
+
+
 
 if(this.keyLeftIsPushed){
 
+  this.headLeft=true;
 this.dy=0;
 this.dx=-20;
   //this.dx=-this.dx;
@@ -131,6 +152,8 @@ this.dx=-20;
 
 
 
+}else{
+ this.headLeft=false;
 }
 
 
@@ -370,6 +393,7 @@ this.direction="down";
 this.keyDownIsPushed=true;
  // this.direction=bName;
   this.keyLeftIsPushed=false;
+  this.headRight=false;
 }
 
   break;
@@ -399,7 +423,7 @@ if(nonAutoriser!==this.direction){
   this.keyUpIsPushed=true;
 
    this.keyLeftIsPushed=false;
-   
+   this.headRight=false;
    
 
 
@@ -407,7 +431,7 @@ if(nonAutoriser!==this.direction){
   break;
 case 'ArrowRight': 
 
-
+this.headRight=true;
 
 if(nonAutoriser!==this.direction){
 this.direction="right";
@@ -440,7 +464,8 @@ break;
   break;
   case 'ArrowUp': //this.keyDownIsPushed=false;
   break;
-case 'ArrowRight':// this.keyLeftIsPushed=false;
+case 'ArrowRight':  //this.headRight=true;
+  // this.keyLeftIsPushed=false;
   break;
 
 
