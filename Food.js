@@ -18,6 +18,7 @@ this.specialFoodPosY=0;
     this.thereIsSpecialFoodCollision;
     this.toGenerateRandomPos();
     //this.foodColision();
+    this.snakeGrow=false;
     
   }
   
@@ -92,6 +93,16 @@ this.graphic.ctx.stroke();
     
     
 this.snakePos.posX==this.foodPosX&&this.snakePos.posY==this.foodPosY?(this.toGenerateRandomPos(),this.thereIsFoodCollision=true) :this.thereIsFoodCollision=false;
+
+
+//say if the snake grow
+if(this.thereIsFoodCollision){
+this.snakeGrow=true;
+
+}else {
+  this.snakeGrow=false;
+}
+
 
 
 // special food collision

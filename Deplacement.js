@@ -38,7 +38,7 @@ export class Deplacement{
     this.headUp=false;
     this.headDown=false;
     
-  
+  this.eraseQueue;
    
   //  this.interval=setInterval(() =>{
      
@@ -57,17 +57,20 @@ export class Deplacement{
   
   
   
-  toMove(){
+  toMove(snakebody,snakeGrow){
     
-   // 
-  // this.getPosX();
+   const snakeHead={x:snakebody[0].x ,y:snakebody[0].y} 
+    
+    
+    
+   snakeHead.x=this.posX;
+   snakeHead.y=this.posY;
+   //console.log(this.posX)
+  
    
-   
-  //console.log("direct :", this.direction); 
-   
-   
-   if(this.direction=="right"){
+   if(this.direction==="right"){
     this.headRight=true;
+    
    this.posX+=this.dx;
   
    }else{
@@ -156,8 +159,15 @@ this.dx=-20;
  this.headLeft=false;
 }
 
+//  })
 
+snakebody.unshift(snakeHead);
 
+if(snakeGrow === false){
+ snakebody.pop();
+
+  console.log("€€€",snakeGrow);
+}
 
   }
   

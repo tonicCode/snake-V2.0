@@ -10,6 +10,7 @@ export class Game{
         this.collisions=false;
         this.pointReachesAtTen=false;
         this.point=0;
+        this.grow=false;
 
         //this.toGetCollisions();
 
@@ -24,10 +25,11 @@ export class Game{
 if(collis){
 
 this.point+=10;
-  
+
 }else if(specCollis){
     this.point+=50;
 }
+
 
  
 
