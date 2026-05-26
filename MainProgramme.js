@@ -30,7 +30,7 @@ this.start();
 
 start(){
 
-setInterval(() =>{
+this.game.interval=setInterval(() =>{
  
 this.snake.drawSnake(this.graphics.ctx,this.graphics.cnv);
 this.graphics.toCreateGrid();
@@ -50,6 +50,10 @@ this.graphics.toDisplay(this.snake.getLocalise() , this.game.toCountPoints());
 
 //this.food.specialFood(this.game.point);
 this.snake.toGrow(this.food.snakeGrow);
+
+this.game.selfCollisions(this.snake.headPos,this.snake.queuePos,this.snake.snakeBody,this.game.interval);
+
+
  
 },100);
 

@@ -6,7 +6,14 @@ export class Snake{
 constructor(deplacement){
 
  this.style="green"; 
- this.growStyle="red";  
+ this.queueStyle="blue";  
+ this.headStyle="red";
+ this.partOfBodyStyle="orange";
+ this.headPos={x:0,y:0};
+ this.queuePos={x:0,y:0};
+ this.partOfBody=0;
+ 
+ 
 this.snakeWidth=20;
 this.snakeHeight=20;
 this.snakePosX=0;
@@ -46,93 +53,62 @@ this.snakeBody.forEach(obj =>{
 
 contextGraphique.fillRect(obj.x,obj.y,this.snakeWidth,this.snakeHeight);
 
+
+
+
+
+
+ 
+ 
 });
 
 
+  //draw the queue and head color
+let nbr=this.snakeBody.length
+//console.log("nb :", this.snakeBody);
+
+this.queuePos={x:this.snakeBody[nbr-1].x ,y:this.snakeBody[nbr-1].y};
+
+this.headPos={x:this.snakeBody[nbr-nbr].x,y:this.snakeBody[nbr-nbr].y};
+
+this.partOfBody={x:this.snakeBody[nbr-3].x ,y:this.snakeBody[nbr-3].y}
 
 
-
-// draw the queue
-
-/*contextGraphique.save();
-contextGraphique.fillStyle=this.growStyle;
+//head style
+contextGraphique.save();
+contextGraphique.fillStyle=this.headStyle;
 //contextGraphique.globalAlpha=0.3;
-contextGraphique.fillRect(this.snakeHead.x,this.snakeHead.y,20,20);
+contextGraphique.fillRect(this.headPos.x,this.headPos.y,20,20);
 contextGraphique.restore();
 
-contextGraphique.fill();*/
 
+//queue style
+contextGraphique.save();
+contextGraphique.fillStyle = this.queueStyle;
+//contextGraphique.globalAlpha=0.3;
+contextGraphique.fillRect(this.queuePos.x, this.queuePos.y, 20, 20);
+contextGraphique.restore();
+
+
+//body style
+contextGraphique.save();
+contextGraphique.fillStyle = this.partOfBodyStyle;
+//contextGraphique.globalAlpha=0.3;
+contextGraphique.fillRect(this.partOfBody, this.partOfBody, 20, 20);
+contextGraphique.restore();
+
+
+
+contextGraphique.fill();
 
 
 
 }
 
 
-/* update(){
- 
- //change the head position
-
-if(this.deplacement.headRight){
- //posx
-//this.snakeMoltPosX=(this.deplacement.posX) - this.snakeWidth;
-
-//this.snakeHead={x:this.snakeBody[0].x, y:this.snakeBody[0].y - 20}
-
-
-//this.snakeBody.unshift(this.snakeHead);
-//this.snakeBody.pop();
-//posY mue
-//this.snakeMoltPosY=this.deplacement.posY;
-
-}else if(this.deplacement.headLeft){
-
-this.snakeHead={x:this.snakeBody[0].x - 20,
- 
- y:this.snakeBody[0].y };
-
-this.snakeBody.unshift(this.snakeHead);
-this.snakeBody.pop();
-
-/*this.snakeMoltPosX=(this.deplacement.posX) + this.snakeWidth;
-this.snakeMoltPosY=this.deplacement.posY;
-
-}else if(this.deplacement.headDown){
-
-
-/*this.snakeMoltPosX=this.deplacement.posX;
-this.snakeMoltPosY=(this.deplacement.posY) - this.snakeHeight;
-
-this.snakeHead={x:this.snakeBody[0].x,
- y:this.snakeBody[0].y + 20};
-
-
-this.snakeBody.unshift(this.snakeHead);
-this.snakeBody.pop();
-
-
-}else if(this.deplacement.headUp){
-/*this.snakeMoltPosX=this.deplacement.posX;
-this.snakeMoltPosY= (this.deplacement.posY) + this.snakeHeight;
-
-this.snakeHead={x:this.snakeBody[0].x ,
- 
- y:this.snakeBody[0].y- 20
- 
-}
-
-this.snakeBody.unshift(this.snakeHead);
-this.snakeBody.pop();
 
 
 
-
-
-} 
-
-
- 
- 
-} */
 
 
 

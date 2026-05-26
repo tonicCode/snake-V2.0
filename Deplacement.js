@@ -38,7 +38,7 @@ export class Deplacement{
     this.headUp=false;
     this.headDown=false;
     
-  this.eraseQueue;
+  //this.eraseQueue;
    
   //  this.interval=setInterval(() =>{
      
@@ -166,7 +166,7 @@ snakebody.unshift(snakeHead);
 if(snakeGrow === false){
  snakebody.pop();
 
-  console.log("€€€",snakeGrow);
+  
 }
 
   }
@@ -254,7 +254,7 @@ this.btnUp.addEventListener("touchend", () => {
 
 
 toPush(togle,bName,nonAutoriser){
-  console.log(bName);
+ // console.log(bName);
   
   if(bName == "down" && bName!=="up"&&nonAutoriser!==this.direction){
   
