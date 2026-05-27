@@ -47,25 +47,45 @@ return `vous avez ${this.point} : points`;
 
 selfCollisions(head,queue,bodySn,loop){
 
-//bodySn.forEach(bodyPos => {
-   
+// compare body snake avec la tete qui est le dernier ele du tableau
+
+
+let rslt=bodySn.some((n,i) =>{ 
+
+    console.log(
+        i,"le x",
+        n.x, "le y",
+        n.y,
+        head.x,
+        head.y,
+         n.x === head.x && n.y === head.y
+        
+    );
+
+
+
+
+return i !== bodySn.length-1 && n.x === bodySn[bodySn.length-1].x&& n.y === bodySn[bodySn.length-1].y
+
+
+
+
+
+});
+ console.log(rslt);
   
- 
-    //si tete touche segm compris entre index 0 et length
-    let isTheBody=true;
-    
-    
-    /*if(queue.x > 0 && head.x<bodySn.length){
-        
-      isTheBody=true;  
-    //  console.log(isTheBody);
-        
-    }*/
-    
-    
+// if true there is a body snake equal to head and game over
+if(rslt){
+// this.gameIsOver(loop);
+
+
+}
+
+
   if(head.x === queue.x && head.y === queue.y){
     
-    clearInterval(loop);
+
+ clearInterval(loop);
     this.btnReplay.innerText="GAME-OVER do you want to replay?"
 
     let btn=document.createElement("button");
@@ -80,6 +100,11 @@ selfCollisions(head,queue,bodySn,loop){
    
         
     })
+
+
+
+
+// this.gameIsOver(loop);
     
     
     
@@ -87,44 +112,32 @@ selfCollisions(head,queue,bodySn,loop){
 }
 
   
+
     
-    
-//});
+
 
 
   
 
 
 
-//for(let i=0;i<partOfSnake.length;i++){
 
-//let length=partOfSnake.length;
 
-    // if(partOfSnake[0].x === partOfSnake[i].y  && partOfSnake[0].y && partOfSnake[i].x){
-         
-       //  console.log(partOfSnake);
-         
-    // }
-     
-     //  si obj existe de deja a la mm pos
+
+
+}
+
+
+    gameIsOver(){
 
    
-//  if(partOfSnake[0].x === partOfSnake[length].x){
-     // alert("ya self collis");
-  //}
-    
-    
-//}
+
+
+    }
 
 
 
 
-
-
-
-
-
-}
 
 }
 

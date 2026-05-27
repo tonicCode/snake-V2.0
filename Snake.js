@@ -74,6 +74,7 @@ this.headPos={x:this.snakeBody[nbr-nbr].x,y:this.snakeBody[nbr-nbr].y};
 this.partOfBody={x:this.snakeBody[nbr-3].x ,y:this.snakeBody[nbr-3].y}
 
 
+
 //head style
 contextGraphique.save();
 contextGraphique.fillStyle=this.headStyle;

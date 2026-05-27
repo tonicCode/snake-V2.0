@@ -82,7 +82,7 @@ export class Deplacement{
       this.posX=0;
       
     }else if(this.posX<0){
-      this.posX=400;
+      this.posX=380;
     }
 
 
